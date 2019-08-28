@@ -29,6 +29,7 @@ export default class Controller {
      * HTTP 202 Accepted 
      * {
      *      "familiaId":"3dac7daf3dac7daf3dac7daf",
+     *      "nomePretendente": "Celina",
      *      "pontuacao":4,
      *      "qtdCriterios":3,
      *      "data": new Date().toLocaleString()

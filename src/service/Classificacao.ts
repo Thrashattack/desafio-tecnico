@@ -19,6 +19,6 @@ export default class Classificacao {
 
         const pontuacaoTotal = ptsIdadePretendente + ptsRendaTotal + ptsDependentesValidos;
         
-        return new Contemplado(familia.id, pontuacaoTotal, qtdCriterios, new Date());
+        return new Contemplado(pretendente.nome, familia.id, pontuacaoTotal, qtdCriterios, new Date());
     }   
 }

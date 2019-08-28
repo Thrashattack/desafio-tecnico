@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "test": "ts-node src/service/tests/classificacao.test.ts",
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/index.ts\" -e ts",
     "build": "tsc",
     "prod": "yarn build && node dist/entry.js"
