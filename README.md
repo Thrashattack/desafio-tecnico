@@ -41,13 +41,15 @@
 
 > yarn test
 
+Dir: [src/service/tests/](https://github.com/Thrashattack/desafio-tecnico/src/service/tests "src/service/tests/")
+Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashattack/desafio-tecnico/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts")
+
 
 ## Exemplo de requisição 
 ![Alt Text](https://github.com/Thrashattack/desafio-tecnico/raw/master/doc/main.jpg)
 
 
-Dir: [src/service/tests/](https://github.com/Thrashattack/desafio-tecnico/src/service/tests "src/service/tests/")
-Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashattack/desafio-tecnico/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts")
+
 
 
 
