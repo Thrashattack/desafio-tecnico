@@ -41,8 +41,8 @@
 
 > yarn test
 
-Dir: [src/service/tests/](https://github.com/Thrashattack/desafio-tecnico/src/service/tests "src/service/tests/")
-Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashattack/desafio-tecnico/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts")
+Dir: [src/service/tests/](https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests "src/service/tests/")
+Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts")
 
 
 ## Exemplo de requisição 
@@ -53,8 +53,8 @@ Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashatta
 
 
 
-[src/index.ts]: https://github.com/Thrashattack/desafio-tecnico/src/index.ts "src/index.ts"
+[src/index.ts]: https://github.com/Thrashattack/desafio-tecnico/tree/master/src/index.ts "src/index.ts"
 [dist/index.js]: https://github.com/Thrashattack/desafio-tecnico/dist/index.ts "dist/index.js"
 [dist/]: https://github.com/Thrashattack/desafio-tecnico/dist "dist/"
-[src/service/tests/]: https://github.com/Thrashattack/desafio-tecnico/src/service/tests "src/service/tests/"
-[src/service/tests/classificacao.test.ts]: https://github.com/Thrashattack/desafio-tecnico/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts"
+[src/service/tests/]: https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests "src/service/tests/"
+[src/service/tests/classificacao.test.ts]: https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts"
