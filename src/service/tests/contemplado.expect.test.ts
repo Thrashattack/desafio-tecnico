@@ -1,0 +1,2 @@
+import mongoose from 'mongoose';
+export default `{"familiaId":${mongoose.Types.ObjectId('3dac7daf3dac7daf3dac7daf').toString()},"pontuacao":4,"qtdCriterios":3,"data":"${new Date().toLocaleString()}"}`
