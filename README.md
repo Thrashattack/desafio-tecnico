@@ -1,6 +1,6 @@
 # Microserviço de classificação de famílias 
 
-• Implementação do sistema de classificação de famílias com a arquitetura de microserviço
+• Implementação do [sistema de classificação de famílias](https://www.notion.so/Desafio-t-cnico-2f53347cf16a418fb75c67c978ab1a0e "sistema de classificação de famílias") com a arquitetura de microserviço
 
 - Requisitos 
 
@@ -58,3 +58,4 @@ Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashatta
 [dist/]: https://github.com/Thrashattack/desafio-tecnico/dist "dist/"
 [src/service/tests/]: https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests "src/service/tests/"
 [src/service/tests/classificacao.test.ts]: https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts"
+[sistema de classificação de famílias]: https://www.notion.so/Desafio-t-cnico-2f53347cf16a418fb75c67c978ab1a0e "sistema de classificação de famílias"
