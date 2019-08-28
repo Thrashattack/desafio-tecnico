@@ -18,23 +18,23 @@
 
 > yarn dev 
 
-• Porta padrão : 3001 
-• Entrada: [src/index.ts](https://github.com/Thrashattack/desafio-tecnico/src/index.js "src/index.ts")
+- Porta padrão : 3001 
+- Entrada: [src/index.ts](https://github.com/Thrashattack/desafio-tecnico/src/index.js "src/index.ts")
 
 ## Build para produção 
 
 > yarn build 
 
-• Dir: [dist/](https://github.com/Thrashattack/desafio-tecnico/dist "dist/")
-• Target: ES5 
+- Dir: [dist/](https://github.com/Thrashattack/desafio-tecnico/dist "dist/")
+- Target: ES5 
 
 
 ## Build para produção e executa o projeto
 
 > yarn prod 
 
-• Porta padrão : 3001 
-• Entrada: [dist/index.js](https://github.com/Thrashattack/desafio-tecnico/dist/index.js "dist/index.js")
+- Porta padrão : 3001 
+- Entrada: [dist/index.js](https://github.com/Thrashattack/desafio-tecnico/dist/index.js "dist/index.js")
 
 
 ## Executa o teste unitário do serviço de classificação
