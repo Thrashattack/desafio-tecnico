@@ -1,7 +1,7 @@
 import Contemplado from "../entity/Contemplado";
 
 export default class ContempladoDTO {
-    public static toContemplado(raw: Contemplado) {
+    public static toResponse(raw: Contemplado) {
         return {
             familiaId: raw.familia,
             nomePretendente: raw.nomePretendente,

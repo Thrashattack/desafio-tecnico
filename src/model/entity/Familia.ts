@@ -16,7 +16,7 @@ export default class Familia {
     private readonly _id: Object;
     private _pessoas: Array<Pessoa>;
     private _rendas: Array<Renda>;
-    private _status?: String;
+    private _status: String;
 
     constructor(id?: string, pessoas?: Array<Pessoa>, rendas?: Array<Renda>, status?: number) {
         if(id) this._id = mongoose.Types.ObjectId(id);

@@ -1,11 +1,11 @@
-import express from 'express';
+import {Request, Response} from 'express';
 import FamiliaDTO from '../model/dto/FamiliaDTO';
 import ContempladoDTO from '../model/dto/ContempladoDTO';
-import Classificacao from '../service/Classificacao';
+import Classificado from '../service/Classificado';
 
 export default class Controller {
     /**
-     * @api {post} / Requisita a classificacao de uma familia
+     * @api {post} / Requisita a Classificacao de uma familia
      * @apiName Classificação
      * @apiGroup Familias
      *
@@ -36,12 +36,25 @@ export default class Controller {
      * }
      *  
      * 
+     * @apiError BadRequest Corpo do objeto da família está incorreto
+     * 
+     * @apiErrorExample 
+     * {
+     *   "Corpo do objeto da família está incorreto"
+     * }
+     * 
      */
-    public static post(req: express.Request, res: express.Response) {
+    public static post(req: Request, res: Response) {
         try {
             const familia = FamiliaDTO.toFamilia(req.body._id, req.body._pessoas, req.body._rendas, req.body._status);
-            const contemplado = Classificacao.contemplar(familia);
-            const response = ContempladoDTO.toContemplado(contemplado);
+            if(!familia) {
+                res.status(400);
+                res.send("Corpo do objeto da família está incorreto");
+                res.end();
+            }
+            const classificado = new Classificado(familia);
+            const contemplado = classificado.contemplar();
+            const response = ContempladoDTO.toResponse(contemplado);
             res.status(202);
             res.json(response);
             res.end();

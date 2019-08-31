@@ -5,8 +5,8 @@ enum DefaultDependentes { MAX_DEPENDENTES = 3, MIN_DEPENDENTES = 1 };
 enum DefaultVariacoes { IDADE = 1, RENDA = 2, DEPENDENTES = 1 };
 enum DefaultPontuacao { IDADE = 3, RENDA = 5, DEPENDENTES = 3 };
 
-export default class Pontuador {
-    public static idadePretendente(idade: Number) {
+export default abstract class Pontuador {
+    public static idadePretendente(idade: Number): number {
         if (idade >= DefaultIdade.MAX_IDADE)
             return DefaultPontuacao.IDADE;
         if (idade >= DefaultIdade.MED_IDADE)
@@ -16,7 +16,7 @@ export default class Pontuador {
         return 0;
     }
 
-    public static rendaTotal(renda: Number) {
+    public static rendaTotal(renda: Number): number {
         if (renda <= DefaultRenda.MIN_RENDA)
             return DefaultPontuacao.RENDA;
         if (renda <= DefaultRenda.MED_RENDA)
@@ -26,7 +26,7 @@ export default class Pontuador {
         return 0;
     }
 
-    public static dependentesValidos(dependentesValidos: Array<Pessoa>) {
+    public static dependentesValidos(dependentesValidos: Array<Pessoa>): number {
         if(dependentesValidos.length >= DefaultDependentes.MAX_DEPENDENTES)
             return DefaultPontuacao.DEPENDENTES;
         if(dependentesValidos.length >= DefaultDependentes.MIN_DEPENDENTES)

@@ -1,4 +1,4 @@
-import Classificacao from '../Classificacao';
+import Classificacao from '../Classificado';
 import ContempladoDTO from '../../model/dto/ContempladoDTO';
 import FamiliaDTO from '../../model/dto/FamiliaDTO';
 import Familia from '../../model/entity/Familia';
@@ -7,16 +7,16 @@ import Contemplado from '../../model/entity/Contemplado';
 import expect from './contemplado.expect.test';
 import snap from './familia.snapshot.test';
 
-const familiaRaw = JSON.parse(snap)
+const familiaRaw: any = JSON.parse(snap)
 const familia: Familia = FamiliaDTO.toFamilia(
     familiaRaw._id,
     familiaRaw._pessoas,
     familiaRaw._rendas,
     familiaRaw._status
 );
-
-const contemplado: Contemplado = Classificacao.contemplar(familia);
-const result = JSON.stringify(ContempladoDTO.toContemplado(contemplado));
+const classificacao: Classificacao = new Classificacao(familia);
+const contemplado: Contemplado = classificacao.contemplar();
+const result: any = JSON.stringify(ContempladoDTO.toResponse(contemplado));
 
 console.log("\n");
 console.log(expect);
