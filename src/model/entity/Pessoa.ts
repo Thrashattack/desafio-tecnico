@@ -7,7 +7,7 @@ export default class Pessoa {
     private _dataDeNascimento: Date;
     private _idade: number;
     private _tipo: String;
-    private _renda: Number; 
+    private _renda: Number;
 
     constructor(nome: String, dataDeNascimento: String, tipo: number, renda: Number, id?: string) {
         if (id) this._id = mongoose.Types.ObjectId(id.valueOf());
@@ -66,5 +66,5 @@ export default class Pessoa {
 
     set idade(idade: number) {
         this._idade = idade;
-    } 
+    }
 }

@@ -9,5 +9,5 @@ export default class ContempladoDTO {
             qtdCriterios: raw.criterios,
             data: raw.data.toLocaleString()
         }
-    }   
+    }
 }

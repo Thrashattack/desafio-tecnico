@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
 
 export default class Contemplado {
+
     private readonly _id: Object;
     private _nomePretendente: String;
     private _familiaId: Object;
     private _pontuacaoTotal: Number;
     private _qtdCriterios: Number;
-    private _dataDeSelecao: Date; 
+    private _dataDeSelecao: Date;
 
     constructor(nomePretendente: String, familiaId: Object, pontuacao: Number, criterios: Number, data: Date) {
         this._id = mongoose.Types.ObjectId();

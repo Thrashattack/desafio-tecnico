@@ -14,10 +14,10 @@ export default class Familia {
     private _pessoas: Array<Pessoa>;
     private _rendas: Array<Renda>;
     private _status: String;
-    
+
 
     constructor(id?: string, pessoas?: Array<Pessoa>, rendas?: Array<Renda>, status?: number) {
-        if(id) this._id = mongoose.Types.ObjectId(id);
+        if (id) this._id = mongoose.Types.ObjectId(id);
         else this._id = mongoose.Types.ObjectId();
 
         if (pessoas) this._pessoas = pessoas;
@@ -78,6 +78,6 @@ export default class Familia {
         this._rendas.push(new Renda(pessoa.id.toString(), pessoa.renda || 0));
     }
 
-    
+
 
 }

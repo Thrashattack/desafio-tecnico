@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 import FamiliaDTO from '../model/dto/FamiliaDTO';
 import ContempladoDTO from '../model/dto/ContempladoDTO';
 import Classificado from '../service/Classificado';
@@ -51,23 +51,23 @@ export default class Controller {
         req.body.forEach((familia: any) => {
             try {
                 const familiaObj = FamiliaDTO.toFamilia(familia._id, familia._pessoas, familia._rendas, familia._status);
-                if(!familiaObj) {
+                if (!familiaObj) {
                     res.status(400);
                     res.send(`Corpo do objeto ${familia} \nestá incorreto`);
                     res.end();
                 }
                 const classificado = new Classificado(familiaObj);
-                const contemplado = classificado.contemplar();
-                const response = ContempladoDTO.toResponse(contemplado);
+                classificado.contemplar();
+                const response = ContempladoDTO.toResponse(classificado);
                 responseArray.push(response);
-            } catch(err) {            
+            } catch (err) {
                 res.status(500);
                 res.json(err);
                 res.end();
-            } 
-        });                  
+            }
+        });
         res.status(202);
         res.json(responseArray);
-        res.end();             
+        res.end();
     }
 }
