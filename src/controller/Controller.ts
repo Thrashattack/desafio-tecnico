@@ -27,41 +27,47 @@ export default class Controller {
      *
      * @apiSuccessExample
      * HTTP 202 Accepted 
-     * {
+     * [
+     *  {
      *      "familiaId":"3dac7daf3dac7daf3dac7daf",
      *      "nomePretendente": "Celina",
      *      "pontuacao":4,
      *      "qtdCriterios":3,
      *      "data": new Date().toLocaleString()
-     * }
+     *  }
+     * ]
      *  
      * 
      * @apiError BadRequest Corpo do objeto da família está incorreto
      * 
      * @apiErrorExample 
      * {
-     *   "Corpo do objeto da família está incorreto"
+     *   "Corpo do objeto {Object} está incorreto"
      * }
      * 
      */
     public static post(req: Request, res: Response) {
-        try {
-            const familia = FamiliaDTO.toFamilia(req.body._id, req.body._pessoas, req.body._rendas, req.body._status);
-            if(!familia) {
-                res.status(400);
-                res.send("Corpo do objeto da família está incorreto");
+        let responseArray: Array<any> = new Array<any>();
+        req.body.forEach((familia: any) => {
+            try {
+                const familiaObj = FamiliaDTO.toFamilia(familia._id, familia._pessoas, familia._rendas, familia._status);
+                if(!familiaObj) {
+                    res.status(400);
+                    res.send(`Corpo do objeto ${familia} \nestá incorreto`);
+                    res.end();
+                }
+                const classificado = new Classificado(familiaObj);
+                const contemplado = classificado.contemplar();
+                const response = ContempladoDTO.toResponse(contemplado);
+                responseArray.push(response);
+            } catch(err) {            
+                res.status(500);
+                res.json(err);
                 res.end();
-            }
-            const classificado = new Classificado(familia);
-            const contemplado = classificado.contemplar();
-            const response = ContempladoDTO.toResponse(contemplado);
-            res.status(202);
-            res.json(response);
-            res.end();
-        } catch(err) {            
-            res.status(500);
-            res.json(err);
-            res.end();
-        }      
+            } 
+        });                  
+        res.status(202);
+        res.json(responseArray);
+        res.end();             
     }
 }

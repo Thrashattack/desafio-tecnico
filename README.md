@@ -6,7 +6,6 @@
 
 ```
     Node.js >= 10.0.0
-    Typescript >= 3.6.2
     yarn ou npm
 ```
 
@@ -40,6 +39,10 @@
 ## Executa o teste unitário do serviço de classificação
 
 > yarn test
+
+## Executa o teste integrado do serviço a partir de uma requisição ( necessário ececutar o projeto antes - yarn dev )
+
+> yarn integrated_test
 
 Dir: [src/service/tests/](https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests "src/service/tests/")
 Entrada: [src/service/tests/classificacao.test.ts](https://github.com/Thrashattack/desafio-tecnico/tree/master/src/service/tests/classificacao.test.ts "src/service/tests/classificacao.test.ts")

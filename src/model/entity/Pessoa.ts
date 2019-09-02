@@ -1,12 +1,11 @@
 import mongoose from 'mongoose';
 
-enum TiposDePessoas { 'Pretendente', 'Conjugue', 'Dependente' }
-
 export default class Pessoa {
+    public static TiposDePessoas: string[] = ['Pretendente', 'Conjugue', 'Dependente'];
     private readonly _id: Object;
     private _nome: String;
     private _dataDeNascimento: Date;
-    private _idade: Number;
+    private _idade: number;
     private _tipo: String;
     private _renda: Number; 
 
@@ -15,7 +14,7 @@ export default class Pessoa {
         else this._id = mongoose.Types.ObjectId();
         this._nome = nome;
         this._dataDeNascimento = new Date(dataDeNascimento.valueOf());
-        this._tipo = TiposDePessoas[tipo];
+        this._tipo = Pessoa.TiposDePessoas[tipo];
         this._renda = renda;
         const nascimento = new Date(dataDeNascimento.valueOf());
         const hoje = new Date();
@@ -61,11 +60,11 @@ export default class Pessoa {
         this._dataDeNascimento = data;
     }
 
-    get idade(): Number {
+    get idade(): number {
         return this._idade;
     }
 
-    set idade(idade: Number) {
+    set idade(idade: number) {
         this._idade = idade;
     } 
 }

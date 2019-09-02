@@ -3,20 +3,18 @@ import mongoose from 'mongoose';
 import Pessoa from './Pessoa';
 import Renda from './Renda';
 
-enum Status {
-    'Cadastro Valido',
-    'Já possui uma casa',
-    'Selecionada em outro processo de seleção',
-    'Cadastro Incompleto'
-}
-
-enum TiposDePessoas { 'Pretendente', 'Conjugue', 'Dependente' }
-
 export default class Familia {
+    public static Status: string[] = [
+        'Cadastro Valido',
+        'Já possui uma casa',
+        'Selecionada em outro processo de seleção',
+        'Cadastro Incompleto'
+    ]
     private readonly _id: Object;
     private _pessoas: Array<Pessoa>;
     private _rendas: Array<Renda>;
     private _status: String;
+    
 
     constructor(id?: string, pessoas?: Array<Pessoa>, rendas?: Array<Renda>, status?: number) {
         if(id) this._id = mongoose.Types.ObjectId(id);
@@ -28,8 +26,8 @@ export default class Familia {
         if (rendas) this._rendas = rendas
         else this._rendas = new Array<Renda>();
 
-        if (status) this._status = Status[status];
-        else this._status = Status[0];
+        if (status) this._status = Familia.Status[status];
+        else this._status = Familia.Status[0];
     }
 
     get id(): Object {
@@ -68,11 +66,11 @@ export default class Familia {
 
     get dependentes(): Array<Pessoa> {
         return this._pessoas.filter(
-            pessoa => pessoa.tipo === TiposDePessoas[2]);
+            pessoa => pessoa.tipo === Pessoa.TiposDePessoas[2]);
     }
 
     get pretendente(): Pessoa {
-        return this._pessoas.filter(pessoa => pessoa.tipo === TiposDePessoas[0])[0];
+        return this._pessoas.filter(pessoa => pessoa.tipo === Pessoa.TiposDePessoas[0])[0];
     }
 
     adicionarMembro(pessoa: Pessoa) {

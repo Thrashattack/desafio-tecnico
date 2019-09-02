@@ -1,36 +1,45 @@
 import Pessoa from '../model/entity/Pessoa';
-enum DefaultIdade { MAX_IDADE = 45, MED_IDADE = 30, MIN_IDADE = 18 };
-enum DefaultRenda { MAX_RENDA = 2000.00, MED_RENDA = 1500.00, MIN_RENDA = 900.00 };
-enum DefaultDependentes { MAX_DEPENDENTES = 3, MIN_DEPENDENTES = 1 };
-enum DefaultVariacoes { IDADE = 1, RENDA = 2, DEPENDENTES = 1 };
-enum DefaultPontuacao { IDADE = 3, RENDA = 5, DEPENDENTES = 3 };
 
 export default abstract class Pontuador {
-    public static idadePretendente(idade: Number): number {
-        if (idade >= DefaultIdade.MAX_IDADE)
-            return DefaultPontuacao.IDADE;
-        if (idade >= DefaultIdade.MED_IDADE)
-            return DefaultPontuacao.IDADE - DefaultVariacoes.IDADE;
-        if (idade >= DefaultIdade.MIN_IDADE)
-            return DefaultPontuacao.IDADE - ( DefaultVariacoes.IDADE * 2 );
-        return 0;
+    public static DefaultIdade: any = { MAX_IDADE: 45, MED_IDADE: 30, MIN_IDADE: 18 };
+    public static DefaultRenda: any = { MAX_RENDA: 2000.00, MED_RENDA: 1500.00, MIN_RENDA: 900.00 }; 
+    public static DefaultDependentes = { MAX_DEPENDENTES: 3, MIN_DEPENDENTES: 1 };
+    public static DefaultVariacoes: any = { IDADE: 1, RENDA: 2, DEPENDENTES: 1 };
+    public static DefaultPontuacao: any = { IDADE: 3, RENDA: 5, DEPENDENTES: 3 }; 
+    private _idade: number;
+    private _rendaTotal: Number;
+    private _dependentes: Array<Pessoa>;
+
+    constructor(idade: number, rendaTotal: Number, dependentes: Array<Pessoa>) {
+        this._idade = idade;
+        this._rendaTotal = rendaTotal;
+        this._dependentes = dependentes.filter(dependente => dependente.idade < 18);
+    }
+    public pontuacaoIdadePretendente(): number {
+        return this._idade >= Pontuador.DefaultIdade.MAX_IDADE ?
+                 Pontuador.DefaultPontuacao.IDADE :
+               this._idade >= Pontuador.DefaultIdade.MED_IDADE ?
+                 Pontuador.DefaultPontuacao.IDADE - Pontuador.DefaultVariacoes.IDADE :
+               this._idade >= Pontuador.DefaultIdade.MIN_IDADE ?
+                 Pontuador.DefaultPontuacao.IDADE - (Pontuador.DefaultVariacoes.IDADE * 2) :
+                0;
     }
 
-    public static rendaTotal(renda: Number): number {
-        if (renda <= DefaultRenda.MIN_RENDA)
-            return DefaultPontuacao.RENDA;
-        if (renda <= DefaultRenda.MED_RENDA)
-            return DefaultPontuacao.RENDA - DefaultVariacoes.RENDA;
-        if (renda <= DefaultRenda.MAX_RENDA)
-            return DefaultPontuacao.RENDA - ( DefaultVariacoes.RENDA * 2);
-        return 0;
+    public pontuacaoRendaTotal(): number {
+        return this._rendaTotal <= Pontuador.DefaultRenda.MIN_RENDA ?
+                 Pontuador.DefaultPontuacao.RENDA :
+               this._rendaTotal <= Pontuador.DefaultRenda.MED_RENDA ?
+                 Pontuador.DefaultPontuacao.RENDA - Pontuador.DefaultVariacoes.RENDA :
+               this._rendaTotal <= Pontuador.DefaultRenda.MAX_RENDA ?
+                 Pontuador.DefaultPontuacao.RENDA - (Pontuador.DefaultVariacoes.RENDA * 2) :
+                0;
     }
 
-    public static dependentesValidos(dependentesValidos: Array<Pessoa>): number {
-        if(dependentesValidos.length >= DefaultDependentes.MAX_DEPENDENTES)
-            return DefaultPontuacao.DEPENDENTES;
-        if(dependentesValidos.length >= DefaultDependentes.MIN_DEPENDENTES)
-            return DefaultPontuacao.DEPENDENTES - DefaultVariacoes.DEPENDENTES;
-        return 0;
+    public pontuacaoDependentesValidos(): number {
+        return this._dependentes.length >= Pontuador.DefaultDependentes.MAX_DEPENDENTES ?
+                 Pontuador.DefaultPontuacao.DEPENDENTES :
+               this._dependentes.length >= Pontuador.DefaultDependentes.MIN_DEPENDENTES ?
+                 Pontuador.DefaultPontuacao.DEPENDENTES - Pontuador.DefaultVariacoes.DEPENDENTES :
+                0;
     }
 }
