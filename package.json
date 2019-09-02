@@ -7,7 +7,7 @@
     "integrated_test": "ts-node src/test/integracao.test.ts",
     "dev": "nodemon --watch \"src/\" --exec \"ts-node src/index.ts\" -e ts",
     "build": "tsc",
-    "prod": "yarn build && node dist/entry.js",
+    "prod": "yarn build && node dist/index.js",
     "build_doc": "apidoc -i src/ -o doc/",
     "run_doc_linux": "firefox doc/index.html",
     "run_doc_windoex": "doc/index.html"

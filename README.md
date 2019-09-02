@@ -7,7 +7,16 @@
 ```
     Node.js >= 10.0.0
     yarn ou npm
+
+    OU 
+
+    Docker >= 19.03
+    Docker Compose >= 3
 ```
+
+## Setup do Projeto (Docker)
+> docker-compose up 
+> Iniciara em modo de produção, é possível rodar os testes locais ou no docker com docker run
 
 ## Setup do Projeto 
 
